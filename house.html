@@ -11,18 +11,20 @@
     <header>
         <div class="container">
             <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                <h1>Модульные дома СПб</h1>
+                <h1><a href="index.html">Модульные дома СПб</a></h1>
                 <nav class="display-dsktp">
                     <ul>
-                        <li><a href="#projects">Наши проекты</a></li>
-                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="index.html#projects">Наши проекты</a></li>
+                        <li><a href="index.html#contact">Контакты</a></li>
                     </ul>
                 </nav>
                 <a href="tel:+77777777777">+7(777)777-77-77</a>
             </div>
         </div>
     </header>
-
+    <div class="back-button">
+        <a href="index.html">Назад</a>
+    </div>
     <section id="hero_house">
         <img src="img/main-modular-house.90crpnkltypj..jpg" alt="Modular houses background">
         <div class="container">
@@ -30,21 +32,31 @@
         </div>
     </section>
 
-    <section id="about">
+    <section class="house-info">
         <div class="container">
-            <div class="about__item">
-                <h3>10 лет</h3>
-                <p>на рынке</p>
+            <div class="house-info__images">
+                <div class="main-image">
+                    <img src="img/_He__.jpg" id="currentImage" alt="Main Image">
+                </div>
+                <div class="thumbnails">
+                    <img src="img/_He__.jpg" onclick="changeImage(this)">
+                    <img src="img/back_Image_2022-.jpeg" onclick="changeImage(this)">
+                    <img src="img/Dvukhtazhnyy_modulnyy_dom.jpg" onclick="changeImage(this)">
+                    <img src="img/main-modular-house.90crpnkltypj..jpg" onclick="changeImage(this)">
+                </div>
             </div>
-            <div class="about__item">
-                <h3>40+</h3>
-                <p>проектов реализовано</p>
+            <div class="house-info__text">
+                <p class="desciprion">
+                    Максимум удобств в компактных размерах. 
+                    В доме пять функциональных зон: спальня, кухня, гостиная, полноценная ванная комната и прихожая с нишей для хранения вещей.
+                </p>
+                <p class="desciprion">
+                    Площадь: 27 м2 <br>
+                    Терраса: 13,9 м2
+                </p>
+                <p class="price">2,54 млн.руб.</p>
             </div>
-            <div class="about__item">
-                <h3>5 лет</h3>
-                <p>гарантии</p>
-            </div>
-        </div>
+        <div class="container">
     </section>
 
     <footer>

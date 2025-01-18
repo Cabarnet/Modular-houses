@@ -1,6 +1,10 @@
-@font-face {
+/* @font-face {
     font-family: Naury;
     src: url(fonts/nauryz/NAURYZREDKEDS.ttf);
+} */
+@font-face {
+    font-family: Naury;
+    src: url(fonts/Cakra-Normal.otf);
 }
 @font-face {
     font-family: Dudka;
@@ -116,6 +120,7 @@ header nav ul li a {
     width: 30vw;
     font-size: 3em;
     text-align: left;
+    filter: drop-shadow(1px 1px 0px #0c0d0c);
 }
 
 #hero img {
@@ -125,11 +130,36 @@ header nav ul li a {
     border-radius: 8px;
 }
 
-#hero .btn {
-    background-color: #0c0d0c;
-    color: #f3f3f3;
-    padding: 10px 20px;
-    text-decoration: none;
+#hero_house {
+    position: relative;
+    margin-top: 11vh;
+    height: 20vh;
+    width: 100%;
+}
+
+#hero_house img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#hero_house .container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    background: #00000090;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+#hero_house h2 { 
+    font-size: 3vw;
+    text-transform: uppercase;
 }
 
 #about, #projects, #contact {
@@ -218,7 +248,7 @@ header nav ul li a {
     align-items: center;
     justify-content: center;
     height: 60px;
-    background: #a68f76;
+    background: linear-gradient(318deg, #624c36, #aa9783);
     color: #040303;
     font-size: 1.2em;
     text-decoration: none;
@@ -380,12 +410,12 @@ footer {
     }
 
     #hero h2 {
-        width: 65vw;
-        font-size: 8vw;
+        width: 75vw;
+        font-size: 9.5vw;
     }
 
     .about__item h3 {
-        font-size: 7vw;
+        font-size: 8vw;
     }
 
     .about__item p {
@@ -425,7 +455,7 @@ footer {
     }
 
     .about__item p {
-        font-size: 1em;
+        font-size: 4vw;
     }
 
     .gallery {
@@ -451,5 +481,17 @@ footer {
     .project-item__info a {
         height: 42px;
         box-shadow: 5px -5px 0px 0px #f3f3f3;
+    }
+
+    #contact h2 {
+        font-size: 9.5vw;
+    }
+
+    #contact form input {
+        font-size: 16px;
+    }
+
+    .contact-company {
+        gap: 13px;
     }
 }

@@ -4,7 +4,7 @@
 } */
 @font-face {
     font-family: Naury;
-    src: url(fonts/Cakra-Normal.otf);
+    src: url(fonts/Moderustic-Bold.ttf);
 }
 @font-face {
     font-family: Dudka;
@@ -34,16 +34,15 @@ body {
     font-family: Dudka, sans-serif, Arial;
     margin: 0;
     padding: 0;
-    background-color: #0c0d0c;
-    color: white;
-    font-size: 17px;
+    background-color: #f8f8f8;
+    color: #2e2e2e;
+    font-size: 18px;
 }
 
 h2, h3 {
-    font-family: 'Naury', Dudka;
-    background: -webkit-linear-gradient(318deg, #ffffff, #aa9783);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
 .container {
@@ -57,15 +56,8 @@ h2, h3 {
 }
 
 header {
-    position: fixed;
-    top: 0;
-    background-color: #0c0d0c90;
-    color: white;
     padding: 1.7em 0;
-    text-align: center;
-    z-index: 10;
     width: 100%;
-    backdrop-filter: blur(10px);
 }
 
 header .container {
@@ -75,13 +67,12 @@ header .container {
 }
 
 header h1 {
-    font-family: Naury, sans-serif;
     font-size: 22px;
 }
 
 header a {
     text-decoration: none;
-    color: #f3f3f3;
+    color: #2e2e2e;
 }
 
 header nav ul {
@@ -95,39 +86,50 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #f3f3f3;
+    color: #2e2e2e;
     text-decoration: none;
 }
 
 #hero {
-    margin-top: 13vh;
-    height: 50vh;
-    color: #f3f3f3;
+    position: relative;
+    height: 70vh;
     text-align: center;
 }
 
 #hero .container {
-    position: relative;
-    display: flex;
+    position: absolute;
     height: 100%;
+    width: 100%;
+    max-width: none;
+    display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    color: #f8f8f8;
+    z-index: 1;
 }
 
 #hero h2 {
-    position: absolute;
-    left: 0;
-    width: 30vw;
+    width: 50%;
     font-size: 3em;
-    text-align: left;
-    filter: drop-shadow(1px 1px 0px #0c0d0c);
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 #hero img {
-    width: 80%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    filter: brightness(0.6);
+}
+
+#hero .btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #47a52a;
+    color: #f8f8f8;
+    text-decoration: none;
+    border-radius: 30px;
 }
 
 #hero_house {
@@ -162,36 +164,50 @@ header nav ul li a {
     text-transform: uppercase;
 }
 
-#about, #projects, #contact {
-    padding: 5vh 0;
+#why, #contact {
+    padding: 7vh 0;
 }
 
 #about {
-    background: #a68f76;
-    margin: 7vh 0px;
+    background: #efeeee; 
+    margin-bottom: 7vh;
+    padding: 5vh 0 7vh;
 }
 
-#about .container {
+#about p {
+    margin-bottom: 20px;
+}
+
+#why {
+    background: #efeeee;
+    margin: 7vh 0 0;
+}
+
+#why p {
+    margin: 20px 0px;
+    text-align: justify;
+}
+
+.why-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.about__item {
+.why__item {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.about__item h3 {
+.why__item h3 {
     font-size: 5em;
-    background: -webkit-linear-gradient(318deg, #070707, #8b7761);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin: 0;
 }
 
-.about__item p {
-    font-size: 1.3em;
+#why .why__item p {
+    font-size: 1.2em;
+    margin-top: 10px;
     color: #000000;
 }
 
@@ -250,10 +266,6 @@ header nav ul li a {
     color: #000000;
 }
 
-#projects {
-    padding: 0;
-}
-
 #projects h2 {
     margin-bottom: 7vh;
     font-size: 3em;
@@ -295,6 +307,8 @@ header nav ul li a {
 
 .project-item__info h3 {
     font-size: 3em;
+    text-align: unset;
+    margin-bottom: 0;
 }
 
 .project-item__info a {
@@ -303,11 +317,10 @@ header nav ul li a {
     align-items: center;
     justify-content: center;
     height: 60px;
-    background: linear-gradient(318deg, #624c36, #aa9783);
-    color: #040303;
-    font-size: 1.2em;
+    background: #47a52a;
+    color: #f8f8f8;
     text-decoration: none;
-    box-shadow: 10px -20px 0px 0px #f3f3f3;
+    box-shadow: 10px -10px 0px 0px #c8c8c8;
     transition: 0.3s;
 }
 
@@ -316,9 +329,7 @@ header nav ul li a {
 }
 
 #contact {
-    background: #a68f76;
-    margin: 7vh 0 3vh;
-    color: #000;
+    margin: 5vh 0 10vh;
 }
 
 #contact .container {
@@ -348,11 +359,10 @@ header nav ul li a {
 
 #contact form input {
     padding: 15px;
-    background: #0c0d0c;
-    border: 0px;
+    background: #f8f8f8;
+    border: 1px solid #2e2e2e;
     font-size: 17px;
     font-family: 'Dudka';
-    color: #f3f3f3;
     outline: none;
 }
 
@@ -370,39 +380,41 @@ header nav ul li a {
     position: absolute;
     top: 15px;
     left: 15px;
-    color: #f3f3f3;
+    color: #2e2e2e;
 }
 
 #contact form button {
     width: 100%;
-    height: 46px;
-    background: #f3f3f3;
-    color: #040303;
+    height: 50px;
+    background: #47a52a;
+    color: #f8f8f8;
     border: 0px;
     font-family: 'Dudka';
     font-size: 17px;
-    box-shadow: -20px 20px 0px 0px #0c0d0c;
+    box-shadow: -20px 20px 0px 0px #e2e2e2;
     transition: 0.3s;
 }
 
 #contact form button:hover {
-    box-shadow: 0px 0px 0px 0px #0c0d0c;
+    box-shadow: 0px 0px 0px 0px #f5f5f5;
 }
 
 footer {
-    background-color: #0c0d0c;
-    color: #f3f3f3;
     text-align: center;
-    padding: 1em 0;
+    padding: 2em 0;
 }
 
-@media (max-width: 1340px) {
+@media (max-width: 1160px) {
     body {
         font-size: 16px;
     }
 
+    header nav ul li {
+        padding: 10px;
+    }
+
     #hero h2 {
-        width: 40vw;
+        width: 60%;
     }
 }
 
@@ -455,26 +467,12 @@ footer {
         flex-direction: column;
     }
 
-    header h1 {
-        font-family: Naury, sans-serif;
-        font-size: 4.2vw;
-    }
-
-    #hero img {
-        width: 70%;
-    }
-
     #hero h2 {
-        width: 75vw;
-        font-size: 9.5vw;
+        width: 75%;
     }
 
-    .about__item h3 {
-        font-size: 8vw;
-    }
-
-    .about__item p {
-        font-size: 1em;
+    .why__item h3 {
+        font-size: 3em;
     }
 
     #projects h2 {
@@ -483,10 +481,15 @@ footer {
 
     .project-item__info h3 {
         font-size: 2em;
+        width: 100%;
     }
 
     .project-item__info a {
         font-size: 1em;
+    }
+
+    .why-content {
+        margin: 35px 0px 20px;
     }
 
     #contact .container {
@@ -494,9 +497,17 @@ footer {
         gap: 50px;
     }
 
+    #contact {
+        margin: 0 0 3vh;
+    }
+    
+    #contact h2 {
+        text-align: left;
+    }
+
     #contact form button {
         font-size: 16px;
-        box-shadow: -10px 10px 0px 0px #0c0d0c;
+        box-shadow: -10px 10px 0px 0px #e2e2e2;
     }
 }
 
@@ -505,10 +516,35 @@ footer {
         font-size: 15px;
     }
 
+    h2, h3 {
+        font-size: 2.5em;
+    }
+
+    header h1 {
+        font-size: 16px;
+    }
+
     #hero {
         height: 40vh;
     }
 
+    #hero .container {
+        width: calc(100% - 30px);
+        padding: 0px 15px;
+    }
+
+    #hero h2 {
+        width: 100%;
+        font-size: 2em;
+    }
+
+    #hero .btn {
+        padding: 10px 25px;
+    }
+
+    #about {
+        padding: 5vh 0;
+    }
     .about__item p {
         font-size: 4vw;
     }
@@ -536,6 +572,25 @@ footer {
     .project-item__info a {
         height: 42px;
         box-shadow: 5px -5px 0px 0px #f3f3f3;
+    }
+
+    #why {
+        padding: 5vh 0;
+    }
+
+    .why-content {
+        align-items: flex-start;
+    }
+
+    .why__item h3 {
+        font-size: 2em;
+        text-wrap: nowrap;
+    }
+
+    #why .why__item p {
+        padding: 0px 5px;
+        text-align: center;
+        font-size: 1em;
     }
 
     #contact h2 {

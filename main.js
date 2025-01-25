@@ -57,3 +57,25 @@ thumbnails.forEach((thumbnail, index) => {
         currentIndex = index; // Update the current index on click
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const blocks = document.querySelectorAll(".realise-animation");
+
+  const revealBlocks = () => {
+    blocks.forEach((block) => {
+      const blockTop = block.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (blockTop < windowHeight - 50) {
+        block.classList.add("visible");
+        block.classList.remove("hidden");
+      }
+    });
+  };
+
+  // Первичная проверка
+  revealBlocks();
+
+  // Срабатывание при прокрутке
+  window.addEventListener("scroll", revealBlocks);
+});

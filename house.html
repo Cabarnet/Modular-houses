@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-png">
 </head>
-<body>
+<body class="house">
     <header>
         <div class="container">
             <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
@@ -20,31 +20,33 @@
                         <li><a href="#contact">Контакты</a></li>
                     </ul>
                 </nav>
-                <div class="header__contact">
+                <!-- <div class="header__contact">
                     <a href="tel:+77777777777">+7(777)777-77-77</a>
-                    <!-- <a href="#"><img src="img/Telegram_Messenger.png" style="width: 35px; height: 35px;" alt="Telegram"></a> -->
+                    <a href="#"><img src="img/Telegram_Messenger.png" style="width: 35px; height: 35px;" alt="Telegram"></a>
+                </div> -->
+                <div class="back-button">
+                    <a href="index.html">
+                        <img src="img/icons8-arrow-60.png" alt="←">
+                        Назад
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="back-button">
-        <a href="index.html">Назад</a>
-    </div>
     <section id="hero_house">
         <img src="img/main-modular-house.90crpnkltypj..jpg" alt="Modular houses background">
         <div class="container">
-            <h2>First house</h2>
-            <p class="price">2.54 млн. руб.</p>
+            <h2>Планировки</h2>
         </div>
     </section>
 
     <section class="house-info">
         <div class="container">
-            <div class="house-info__images">
-                <div class="main-image">
-                    <img src="img/_He__.jpg" id="currentImage" alt="Main Image">
-                </div>
+            <div class="main-image">
+                <img src="img/_He__.jpg" id="currentImage" alt="Main Image">
+            </div>
+            <div class="house-info__images" style="display: none;">
                 <div class="thumbnails">
                     <img src="img/_He__.jpg" onclick="changeImage(this)">
                     <img src="img/back_Image_2022-.jpeg" onclick="changeImage(this)">
@@ -53,6 +55,8 @@
                 </div>
             </div>
             <div class="house-info__text">
+                <h2>FIRST HOUSE</h2>
+                <p class="price">2 860 000 руб.</p>
                 <p class="desciprion">
                     Максимум удобств в компактных размерах. 
                     В доме пять функциональных зон: спальня, кухня, гостиная, полноценная ванная комната и прихожая с нишей для хранения вещей.
@@ -61,9 +65,8 @@
                     Площадь: 27 м2 <br>
                     Терраса: 13,9 м2
                 </p>
-                <p class="price">2,54 млн.руб.</p>
             </div>
-        <div class="container">
+        </div>
     </section>
 
     <footer>

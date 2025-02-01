@@ -34,7 +34,7 @@ body {
     font-family: Dudka, sans-serif, Arial;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #fcfffc;
     color: #2e2e2e;
     font-size: 18px;
 }
@@ -72,10 +72,10 @@ h2, h3 {
 }
 
 .back-button {
-    position: fixed;
+    /* position: fixed; */
     top: 70px;
     right: 5vw;
-    padding: 10px 25px;
+    padding: 10px 25px 10px 20px;
     background: #47a52a;
     border-radius: 30px;
     z-index: 10;
@@ -84,12 +84,25 @@ h2, h3 {
 
 .back-button a { 
     text-decoration: none;
-    color: #f8f8f8;
+    color: #fcfffc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.back-button img {
+    filter: invert(1);
+    height: 20px;
 }
 
 header {
     padding: 1.7em 0;
     width: 100%;
+}
+
+.house header {
+    padding: 1.5em 0;
 }
 
 header .container {
@@ -152,7 +165,7 @@ header nav ul li a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #f8f8f8;
+    color: #fcfffc;
     z-index: 1;
 }
 
@@ -195,7 +208,7 @@ header nav ul li a {
     margin-top: 20px;
     padding: 15px 30px;
     background: #47a52a;
-    color: #f8f8f8;
+    color: #fcfffc;
     text-decoration: none;
     border-radius: 30px;
 }
@@ -230,14 +243,14 @@ header nav ul li a {
 
 #hero_house h2 { 
     font-size: 40px;
-    color: #f8f8f8;
+    color: #fcfffc;
     margin: 0;
     text-transform: uppercase;
 }
 
 #hero_house .price {
     font-size: 30px;
-    color: #f8f8f8;
+    color: #fcfffc;
     border-bottom: 2px solid #47a52a;
     text-transform: uppercase;
 }
@@ -294,6 +307,11 @@ header nav ul li a {
     margin: 40px 0;
 }
 
+.house-info .container {
+    display: flex;
+    justify-content: space-around;
+}
+
 .house-info__images {
     width: 100%;
     display: flex;
@@ -302,8 +320,7 @@ header nav ul li a {
 }
 
 .main-image {
-    width: 50vw;
-    height: 35vw;
+    width: 50%;
 }
 
 .main-image img {
@@ -340,10 +357,24 @@ header nav ul li a {
 }
 
 .house-info__text {
-    padding: 40px;
-    background: #e3f1de;
+    width: 45%;
+    padding: 10px 40px;
     margin: 30px 0;
     color: #000000;
+    box-sizing: border-box;
+}
+
+.house-info__text h2 {
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.house-info__text .price {
+    margin: 20px 0px;
+    font-size: 1.2em;
+    font-weight: 500;
+    width: fit-content;
+    color: #2cba00;
 }
 
 #projects h2 {
@@ -398,7 +429,7 @@ header nav ul li a {
     justify-content: center;
     height: 60px;
     background: #47a52a;
-    color: #f8f8f8;
+    color: #fcfffc;
     text-decoration: none;
     box-shadow: 10px -10px 0px 0px #c8c8c8;
     transition: 0.3s;
@@ -430,6 +461,16 @@ header nav ul li a {
     flex-direction: column;
 }
 
+.contact-company .address p {
+    font-size: 20px;
+}
+
+.contact-company .address p:first-child{
+    font-size: 20px;
+    margin: 10px 0px;
+    font-weight: 600;
+}
+
 #contact form {
     display: flex;
     gap: 25px;
@@ -439,7 +480,7 @@ header nav ul li a {
 
 #contact form input {
     padding: 15px;
-    background: #f8f8f8;
+    background: #fcfffc;
     border: 1px solid #2e2e2e;
     font-size: 17px;
     font-family: 'Dudka';
@@ -467,7 +508,7 @@ header nav ul li a {
     width: 100%;
     height: 50px;
     background: #47a52a;
-    color: #f8f8f8;
+    color: #fcfffc;
     border: 0px;
     font-family: 'Dudka';
     font-size: 17px;

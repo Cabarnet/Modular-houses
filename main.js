@@ -18,46 +18,7 @@ function formatPhoneNumber(input) {
   input.value = formattedValue;
 }
 
-let currentIndex = 0;
-const thumbnails = document.querySelectorAll('.thumbnails img');
-const mainImage = document.getElementById('currentImage');
-
-function changeImage(thumbnail) {
-    fadeOut(mainImage, () => {
-        mainImage.src = thumbnail.src;
-        fadeIn(mainImage);
-        currentIndex = Array.from(thumbnails).indexOf(thumbnail);
-    });
-}
-
-function autoChangeImage() {
-    fadeOut(mainImage, () => {
-        currentIndex = (currentIndex + 1) % thumbnails.length;
-        mainImage.src = thumbnails[currentIndex].src;
-        fadeIn(mainImage);
-    });
-}
-
-function fadeOut(element, callback) {
-    element.classList.add('fade-out');
-    setTimeout(() => {
-        callback();
-    }, 300); // Длительность анимации должна совпадать с transition в CSS
-}
-
-function fadeIn(element) {
-    element.classList.remove('fade-out');
-}
-
-setInterval(autoChangeImage, 15000);
-
-thumbnails.forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        changeImage(thumbnail);
-        currentIndex = index; // Update the current index on click
-    });
-});
-
+// Появление при прокрутке
 document.addEventListener("DOMContentLoaded", () => {
   const blocks = document.querySelectorAll(".realise-animation");
 

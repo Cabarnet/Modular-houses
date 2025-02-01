@@ -40,3 +40,88 @@ document.addEventListener("DOMContentLoaded", () => {
   // Срабатывание при прокрутке
   window.addEventListener("scroll", revealBlocks);
 });
+
+document.querySelectorAll(".to-full-screen").forEach(img => {
+  img.addEventListener("click", function() {
+      document.getElementById("fullscreen-image").src = this.src;
+      document.getElementById("fullscreen-container").style.display = "flex";
+  });
+});
+
+document.getElementById("fullscreen-container").addEventListener("click", function(event) {
+  if (event.target === this || event.target.id === "close-btn") {
+      this.style.display = "none";
+  }
+});
+document.querySelectorAll(".to-full-screen__block").forEach(block => {
+  let images = [];
+  let currentIndex = 0;
+
+  // Получаем все изображения внутри блока
+  const imgElements = block.querySelectorAll(".to-full-screen");
+  
+  imgElements.forEach((img, index) => {
+      img.addEventListener("click", function () {
+          images = Array.from(imgElements); // Обновляем только для текущего блока
+          openFullscreen(index);
+      });
+  });
+
+  function openFullscreen(index) {
+      currentIndex = index;
+      document.getElementById("fullscreen-image").src = images[currentIndex].src;
+      document.getElementById("fullscreen-container").style.display = "flex";
+  }
+
+  function closeFullscreen() {
+      document.getElementById("fullscreen-container").style.display = "none";
+  }
+
+  function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("fullscreen-image").src = images[currentIndex].src;
+  }
+
+  function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      document.getElementById("fullscreen-image").src = images[currentIndex].src;
+  }
+
+  document.getElementById("close-btn").addEventListener("click", closeFullscreen);
+  document.getElementById("fullscreen-container").addEventListener("click", function (event) {
+      if (event.target === this) closeFullscreen();
+  });
+  document.getElementById("next-btn").addEventListener("click", nextImage);
+  document.getElementById("prev-btn").addEventListener("click", prevImage);
+
+  document.addEventListener("keydown", function (event) {
+      if (document.getElementById("fullscreen-container").style.display === "flex") {
+          if (event.key === "ArrowRight") nextImage();
+          if (event.key === "ArrowLeft") prevImage();
+          if (event.key === "Escape") closeFullscreen();
+      }
+  });
+});
+
+document.querySelectorAll(".accordion-header").forEach(header => {
+  header.addEventListener("click", function () {
+      let parent = this.parentElement;
+      let content = parent.querySelector(".accordion-content");
+      let icon = this.querySelector(".accordion-icon");
+
+      if (parent.classList.contains("active")) {
+          // Закрываем
+          content.style.maxHeight = content.scrollHeight + "px"; // Фиксируем высоту
+          setTimeout(() => {
+              content.style.maxHeight = "0"; // Затем схлопываем
+          }, 1);
+          parent.classList.remove("active");
+        
+      } else {
+          // Открываем текущий
+          parent.classList.add("active");
+          content.style.maxHeight = content.scrollHeight + "px";
+          
+      }
+  });
+});

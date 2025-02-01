@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-png">
 </head>
+
 <body class="house">
     <header>
         <div class="container">
@@ -43,28 +45,125 @@
 
     <section class="house-info">
         <div class="container">
-            <div class="main-image">
-                <img src="img/_He__.jpg" id="currentImage" alt="Main Image">
-            </div>
-            <div class="house-info__images" style="display: none;">
-                <div class="thumbnails">
-                    <img src="img/_He__.jpg" onclick="changeImage(this)">
-                    <img src="img/back_Image_2022-.jpeg" onclick="changeImage(this)">
-                    <img src="img/Dvukhtazhnyy_modulnyy_dom.jpg" onclick="changeImage(this)">
-                    <img src="img/main-modular-house.90crpnkltypj..jpg" onclick="changeImage(this)">
+            <div class="house-info__left">
+                <div class="house-info__block">
+                    <h2>FIRST HOUSE</h2>
+                    <p class="price">2 860 000 руб.</p>
+                    <p class="description">
+                        Максимум удобств в компактных размерах.
+                        В доме пять функциональных зон: спальня, кухня, гостиная, полноценная ванная комната и прихожая
+                        с нишей для хранения вещей.
+                    </p>
+                    <p class="description">
+                        Площадь: 27 м2 <br>
+                        Терраса: 13,9 м2
+                    </p>
+                </div>
+                <div class="house-info__main-image display-phone">
+                    <img src="img/_He__.jpg" alt="The scheme of the house">
+                </div>
+                <div class="house-info__block">
+                    <h2>Внешний вид</h2>
+                    <div class="house-info__facade to-full-screen__block">
+                        <div class="house-info__facade_text">
+                            <img src="img/vid1_1.jpg" class="to-full-screen" alt="Facade">
+                            <p class="description">
+                                Со стороны входа
+                            </p>
+                        </div>
+                        <div class="house-info__facade_text">
+                            <img src="img/back_Image_2022-.jpeg" class="to-full-screen" alt="Facade">
+                            <p class="description">
+                                Со стороны террасы
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="house-info__text">
-                <h2>FIRST HOUSE</h2>
-                <p class="price">2 860 000 руб.</p>
-                <p class="desciprion">
-                    Максимум удобств в компактных размерах. 
-                    В доме пять функциональных зон: спальня, кухня, гостиная, полноценная ванная комната и прихожая с нишей для хранения вещей.
-                </p>
-                <p class="desciprion">
-                    Площадь: 27 м2 <br>
-                    Терраса: 13,9 м2
-                </p>
+            <div class="house-info__main-image display-dsktp">
+                <img src="img/_He__.jpg" alt="The scheme of the house">
+            </div>
+        </div>
+    </section>
+
+    <section id="house-photos">
+        <div class="container">
+            <div class="house-photos__container to-full-screen__block">
+                <div class="house-photos__item">
+                    <img src="img/main-modular-house.90crpnkltypj..jpg" class="to-full-screen" alt="House photo">
+                </div>
+                <div class="house-photos__item">
+                    <img src="img/Dvukhtazhnyy_modulnyy_dom.jpg" class="to-full-screen" alt="House photo">
+                </div>
+                <div class="house-photos__item">
+                    <img src="img/main-modular-house.90crpnkltypj..jpg" class="to-full-screen" alt="House photo">
+                </div>
+                <div class="house-photos__item">
+                    <img src="img/back_Image_2022-.jpeg" class="to-full-screen" alt="House photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="fullscreen-container">
+        <span id="close-btn">&times;</span>
+        <img id="fullscreen-image">
+        <span id="prev-btn">&#10094;</span>
+        <span id="next-btn">&#10095;</span>
+    </div>
+
+    <section id="house-answers">
+        <div class="container realise-animation hidden accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Комплектация и что входит в стоимость
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content__text">
+                        <p><strong>Расширение модуля</strong> - на 90 см - 400 000 руб.</p>
+                        <p><strong>Крыльцо</strong> - входная группа - от 95 000 руб. до 400 000 руб.</p>
+                        <p><strong>Терраса</strong> - 210 000 руб.</p>
+                        <p><strong>Теплый тамбур</strong> - Теплый пол, фанера ФК, освещение - 300 000 руб.</p>
+                        <p><strong>Комплект свай</strong> - от 75 000 до 95 000 руб.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Доставка дома
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content__text">
+                        <p>Доставка осуществляется по всей России. Стоимость зависит от расстояния.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Не входит в стоимость
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content__text">
+                        <p>Отделка, мебель и дополнительные работы оплачиваются отдельно.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    Сроки, оплата, гарантии
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-content__text">
+                        <p>Срок строительства 2-3 месяца. Гарантия на материалы и работы – 5 лет.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -77,4 +176,5 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>

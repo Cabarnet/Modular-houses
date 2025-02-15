@@ -20,10 +20,10 @@ function formatPhoneNumber(input) {
 
 // Появление при прокрутке
 document.addEventListener("DOMContentLoaded", () => {
-  const blocks = document.querySelectorAll(".realise-animation");
+  const realiseBlocks = document.querySelectorAll(".realise-animation");
 
   const revealBlocks = () => {
-    blocks.forEach((block) => {
+    realiseBlocks.forEach((block) => {
       const blockTop = block.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
@@ -36,73 +36,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Первичная проверка
   revealBlocks();
-
   // Срабатывание при прокрутке
   window.addEventListener("scroll", revealBlocks);
 });
 
-document.querySelectorAll(".to-full-screen").forEach(img => {
-  img.addEventListener("click", function() {
-      document.getElementById("fullscreen-image").src = this.src;
-      document.getElementById("fullscreen-container").style.display = "flex";
+if (document.querySelector(".to-full-screen__block")) {
+  document.querySelectorAll(".to-full-screen").forEach(img => {
+    img.addEventListener("click", function() {
+        document.getElementById("fullscreen-image").src = this.src;
+        document.getElementById("fullscreen-container").style.display = "flex";
+    });
   });
-});
 
-document.getElementById("fullscreen-container").addEventListener("click", function(event) {
-  if (event.target === this || event.target.id === "close-btn") {
-      this.style.display = "none";
-  }
-});
-document.querySelectorAll(".to-full-screen__block").forEach(block => {
-  let images = [];
-  let currentIndex = 0;
+  document.getElementById("fullscreen-container").addEventListener("click", function(event) {
+    if (event.target === this || event.target.id === "close-btn") {
+        this.style.display = "none";
+    }
+  });
 
-  // Получаем все изображения внутри блока
-  const imgElements = block.querySelectorAll(".to-full-screen");
-  
-  imgElements.forEach((img, index) => {
-      img.addEventListener("click", function () {
-          images = Array.from(imgElements); // Обновляем только для текущего блока
-          openFullscreen(index);
+  // Прокрутка
+  document.querySelectorAll(".to-full-screen__block").forEach(block => {
+    let images = [];
+    let currentIndex = 0;
+    
+    document.querySelectorAll(".to-full-screen__block").forEach(block => {
+      const imgElements = block.querySelectorAll(".to-full-screen");
+    
+      imgElements.forEach((img, index) => {
+          img.addEventListener("click", function () {
+              images = Array.from(imgElements); // Обновляем массив изображений при каждом клике
+              currentIndex = index;
+              openFullscreen();
+          });
       });
-  });
-
-  function openFullscreen(index) {
-      currentIndex = index;
+    });
+    
+    function openFullscreen() {
       document.getElementById("fullscreen-image").src = images[currentIndex].src;
       document.getElementById("fullscreen-container").style.display = "flex";
-  }
-
-  function closeFullscreen() {
+    }
+    
+    function closeFullscreen() {
       document.getElementById("fullscreen-container").style.display = "none";
-  }
-
-  function nextImage() {
+    }
+    
+    function nextImage() {
+      if (images.length === 0) return;
       currentIndex = (currentIndex + 1) % images.length;
       document.getElementById("fullscreen-image").src = images[currentIndex].src;
-  }
-
-  function prevImage() {
+    }
+    
+    function prevImage() {
+      if (images.length === 0) return;
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       document.getElementById("fullscreen-image").src = images[currentIndex].src;
-  }
-
-  document.getElementById("close-btn").addEventListener("click", closeFullscreen);
-  document.getElementById("fullscreen-container").addEventListener("click", function (event) {
+    }
+    
+    document.getElementById("close-btn").addEventListener("click", closeFullscreen);
+    document.getElementById("fullscreen-container").addEventListener("click", function (event) {
       if (event.target === this) closeFullscreen();
-  });
-  document.getElementById("next-btn").addEventListener("click", nextImage);
-  document.getElementById("prev-btn").addEventListener("click", prevImage);
-
-  document.addEventListener("keydown", function (event) {
+    });
+    document.getElementById("next-btn").addEventListener("click", nextImage);
+    document.getElementById("prev-btn").addEventListener("click", prevImage);
+    
+    document.addEventListener("keydown", function (event) {
       if (document.getElementById("fullscreen-container").style.display === "flex") {
           if (event.key === "ArrowRight") nextImage();
           if (event.key === "ArrowLeft") prevImage();
           if (event.key === "Escape") closeFullscreen();
       }
+    });  
   });
-});
+}
 
+// Аккодрион
 document.querySelectorAll(".accordion-header").forEach(header => {
   header.addEventListener("click", function () {
       let parent = this.parentElement;
@@ -123,5 +130,34 @@ document.querySelectorAll(".accordion-header").forEach(header => {
           content.style.maxHeight = content.scrollHeight + "px";
           
       }
+  });
+});
+
+// Слайдер картинок производства
+document.addEventListener("DOMContentLoaded", () => {
+  const mainSlide = document.querySelector('.manufacture__slider .slider-main img');
+  const sliderIcons = document.querySelectorAll('.manufacture__slider .slider-icons img');
+  let currentMainImage = '';
+
+  document.querySelector('.manufacture__slider .controls #next').addEventListener('click', () => {
+    mainSlide.classList.add('transition');
+    setTimeout(() => {
+      currentMainImage = mainSlide.src;
+      mainSlide.src = sliderIcons[0].src;
+      sliderIcons[0].src = sliderIcons[1].src;
+      sliderIcons[1].src = currentMainImage;
+      mainSlide.classList.remove('transition');
+    }, 300);
+  });
+
+  document.querySelector('.manufacture__slider .controls #prev').addEventListener('click', () => {
+    mainSlide.classList.add('transition');
+    setTimeout(() => {
+      mainSlide.classList.remove('transition');
+      currentMainImage = mainSlide.src;
+      mainSlide.src = sliderIcons[1].src;
+      sliderIcons[1].src = sliderIcons[0].src;
+      sliderIcons[0].src = currentMainImage;
+  }, 300);
   });
 });

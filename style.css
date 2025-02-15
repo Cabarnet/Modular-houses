@@ -24,6 +24,7 @@
 
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -232,12 +233,12 @@ header nav ul li a {
     width: 100%;
     height: 100%;
     max-width: none;
-    background: #00000090;
+    padding: 0 5vw;
+    background: #282828;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
     backdrop-filter: blur(8px);
 }
@@ -245,15 +246,46 @@ header nav ul li a {
 #hero_house h2 { 
     font-size: 40px;
     color: #fcfffc;
+    border-bottom: 2px solid #47a52a;
     margin: 0;
     text-transform: uppercase;
 }
 
-#hero_house .price {
-    font-size: 30px;
-    color: #fcfffc;
-    border-bottom: 2px solid #47a52a;
-    text-transform: uppercase;
+#hero_house .prev, #hero_house .next {
+    position: relative;
+    width: 0;
+    height: 100%;
+}
+
+#hero_house .prev a, #hero_house .next a {
+    text-decoration: none;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: max-content;
+}
+
+#hero_house .prev a {
+    left: 0;
+}
+
+#hero_house .next a {
+    right: 0;
+    text-align: right;
+}
+
+#hero_house .prev a span, #hero_house .next a span {
+    margin: 0 3px;
+    transition: 0.3s;
+}
+
+#hero_house .prev a:hover span, #hero_house .next a:hover span {
+    margin: 0 10px;
+}
+
+#hero_house h4 {
+    font-size: 1.5em;
 }
 
 #why, #contact {
@@ -447,7 +479,6 @@ header nav ul li a {
 #next-btn { right: 30px; top: 50%; transform: translateY(-50%); }
 
 .accordion {
-    background: white;
     margin: 50px auto;
     border-radius: 5px;
     overflow: hidden;
@@ -465,7 +496,6 @@ header nav ul li a {
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
-    background: white;
     transition: background 0.3s;
 }
 
@@ -493,7 +523,7 @@ header nav ul li a {
 
 .accordion-content {
     max-height: 0;
-    background: white;
+    background: #e3f1de;
     font-size: 16px;
     padding: 0px 15px;
     overflow: hidden;
@@ -514,6 +544,36 @@ header nav ul li a {
 
 .accordion-item.active .accordion-icon {
     transform: rotate(45deg);
+}
+
+#promotions {
+    margin: 70px 0px;
+}
+
+#promotions .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.promotion-item {
+    width: 23%;
+    border: 1px solid #000;
+    box-shadow: 10px 10px #47a52a;
+    padding: 30px 1.75vw;
+}
+
+.promotion-item h5 {
+    text-align: center;
+    font-size: 1em;
+    margin: 0 0 15px;
+}
+
+.promotion-item p {
+    text-wrap: balance;          /* Умный перенос строк */
+    overflow-wrap: break-word;   /* Перенос длинных слов */
+    word-wrap: break-word;
+    hyphens: auto;               /* Перенос слов с дефисом */
+    white-space: normal;         /* Позволяет тексту переноситься */ 
 }
 
 #projects h2 {
@@ -543,7 +603,8 @@ header nav ul li a {
 }
 
 .project-item img {
-    width: 65%;
+    width: 67%;
+    height: 45vh;
     object-fit: cover;
 }
 
@@ -553,6 +614,7 @@ header nav ul li a {
     justify-content: space-between;
     align-items: flex-end;
     text-align: right;
+    width: 30%;
 }
 
 .project-item__info h3 {
@@ -578,26 +640,167 @@ header nav ul li a {
     box-shadow: 0px -0px 0px 0px #f3f3f3;
 }
 
+#manufacture {
+    /* margin: 5vh 0 10vh; */
+    padding: 7vh 0 8vh;
+    background: #282828;
+    color: #fff;
+}
+
+#manufacture .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.manufacture-container__left, .manufacture-container__right {
+    width: 49%;
+}
+
+.manufacture-container__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.manufacture-container__left .promo {
+    color: #42FF5E;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.manufacture-container__left p {
+    margin: 15px 0;
+}
+
+.manufacture-container__left h5 {
+    margin: 20px 0 10px;
+    font-size: 1.2em;
+}
+
+.manufacture__slider {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+
+.manufacture__slider .slider-main {
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.manufacture__slider .slider-main img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(0px);
+    transition: .3s;
+}
+
+.manufacture__slider .slider-main img.transition {
+    filter: blur(8px);
+}
+
+.manufacture__slider .controls {
+    display: flex;
+    justify-content: center;
+}
+
+.manufacture__slider .controls button {
+    background-color: #52d729;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 24px;
+    transition: .2s;
+}
+
+.manufacture__slider .controls button:active {
+    background-color: #3db419;
+}
+
+.manufacture__slider .slider-icons {
+    display: flex;
+    width: 100%;
+}
+
+.manufacture__slider .slider-icons img {
+    width: 50%;
+    height: 150px;
+    object-fit: cover;
+}
+
 #contact {
     margin: 5vh 0 10vh;
 }
 
 #contact .container {
     display: flex;
+    gap: 5vw;
     justify-content: space-between;
+    align-items: center;
 }
 
 #contact h2 {
     font-size: 2.4em;
-    background: -webkit-linear-gradient(318deg, #080808, #55493d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+.consultation-company {
+    width: 25%;
 }
 
 .contact-company {
     display: flex;
     gap: 20px;
     flex-direction: column;
+    width: 70%;
+}
+
+.contact-company .background {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.contact-company .logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #42FF5E;
+    padding: 20px;
+    border-radius: 0 0 50px 0;
+    z-index: 2;
+}
+
+.contact-company div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px 50px 30px;
+    background: #00000090;
+    border-radius: 0 50px 50px 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+}
+
+.contact-company div p {
+    display: flex;
+    flex-direction: column;
+    margin: 35px 0;
+    font-size: 1.1em;
+}
+
+.contact-company div h2 {
+    text-align: left;
+}
+
+.contact-company div a {
+    text-decoration: none;
+    color: #fff;
+    margin: 3px 0;
 }
 
 .contact-company .address p {
@@ -692,6 +895,22 @@ footer {
     #hero h2 {
         width: 60%;
     }
+
+    #manufacture .container {
+        flex-direction: column;
+    }
+
+    .manufacture-container__left, .manufacture-container__right {
+        width: 100%;
+    }
+    
+    .manufacture-container__right {
+        margin-top: 30px;
+    }
+
+    .manufacture__slider .slider-main img {
+        height: 240px;
+    }
 }
 
 @media (max-width: 960px) {
@@ -707,8 +926,28 @@ footer {
         width: 90%;
     }
 
+    #hero_house {
+        height: 22vh;
+    }
+
     #hero h2 {
         width: 50vw;
+    }
+
+    #hero_house h2 {
+        display: none;
+    }
+
+    #hero_house h4 {
+        font-size: 1.3em;
+    }
+
+    #hero_house .prev a {
+        top: 30%;
+    }
+
+    #hero_house .next a {
+        top: 70%;
     }
 
     .about__item h3 {
@@ -802,12 +1041,25 @@ footer {
         left: 10px;
     }
 
+    #promotions .container {
+        flex-wrap: wrap;
+    }
+
+    .promotion-item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
     .why__item h3 {
         font-size: 3em;
     }
 
     #projects h2 {
         font-size: 2.6em;
+    }
+
+    .project-item__info {
+        width: unset;
     }
 
     .project-item__info h3 {
@@ -817,6 +1069,24 @@ footer {
 
     .project-item__info a {
         font-size: 1em;
+    }
+
+    #manufacture {
+        padding: 4vh 0 3vh;
+    }
+
+    .manufacture-container__left p {
+        margin: 10px 0;
+    }
+
+    .manufacture-container__left .promo {
+        font-size: 1.2em;
+        text-align: left;
+        margin: 15px 0;
+    }
+
+    .manufacture__slider .slider-icons img {
+        height: 100px;
     }
 
     .why-content {
@@ -834,6 +1104,33 @@ footer {
     
     #contact h2 {
         text-align: left;
+    }
+
+    .contact-company {
+        width: 100%;
+        position: relative;
+    }
+
+    .contact-company .background {
+        height: 380px;
+    }
+
+    .contact-company .logo {
+        border-radius: 0 0 25px 0;
+        width: 40%;
+    }
+
+    .contact-company div {
+        padding: 25px 20px 10px;
+    }
+    
+    .contact-company div p {
+        font-size: 1em;
+        margin: 20px 0;
+    }
+
+    .consultation-company {
+        width: 100%;
     }
 
     #contact form button {
@@ -871,7 +1168,6 @@ footer {
     }
 
     #hero .container {
-        width: calc(100% - 30px);
         padding: 0px 15px;
     }
 
@@ -958,9 +1254,5 @@ footer {
 
     #contact form input {
         font-size: 16px;
-    }
-
-    .contact-company {
-        gap: 13px;
     }
 }

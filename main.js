@@ -161,3 +161,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 300);
   });
 });
+
+// Запись на консультацию
+document.querySelector('.consultation-company form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  this.querySelector('button .text').style.display = "none";
+  this.querySelector('button .loader').style.display = "inline-block";
+
+
+  const name = this.querySelector('input[type="text"]').value;
+  const phone = '8' + this.querySelector('input[type="tel"]').value.replace(/\D/g, '');
+  console.log(phone);
+  fetch('https://script.google.com/macros/s/AKfycbw26UUoGLujE-AxKd9NWu-jKhIRBnSIXZkiunUAAO9PgayDliT85UkHLoUqPPaOxA-y/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      phone: phone
+    })
+  }).then(() => {
+    alert('Данные отправлены!');
+
+    this.querySelector('button .text').style.display = "block";
+    this.querySelector('button .loader').style.display = "none";
+
+    this.reset();
+  }).catch(() => {
+    alert('Ошибка при отправке');
+  });
+});

@@ -173,7 +173,7 @@ document.querySelector('.consultation-company form').addEventListener('submit', 
   const name = this.querySelector('input[type="text"]').value;
   const phone = '8' + this.querySelector('input[type="tel"]').value.replace(/\D/g, '');
   console.log(phone);
-  fetch('https://script.google.com/macros/s/AKfycbw26UUoGLujE-AxKd9NWu-jKhIRBnSIXZkiunUAAO9PgayDliT85UkHLoUqPPaOxA-y/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyhz0uT-9eRu0IGi7ZZpijo10FOMWjG3eoc-Qh8RJFIM_KqysLObR7foTEtfAutNdQ2/exec', {
     method: 'POST',
     mode: 'no-cors',
     headers: {

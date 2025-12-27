@@ -215,6 +215,7 @@ header nav ul li a {
 }
 
 #hero h4 {
+    font-weight: 300;
     font-size: 1.2em;
     margin-bottom: 15px;
     color: #fff;
@@ -523,6 +524,20 @@ header nav ul li a {
 #house-pluses {
     margin: 70px 0px;
 }
+
+#house-pluses  .container {
+    display: flex;
+}
+
+#house-pluses  .container .left-side, #house-pluses  .container .right-side {
+    padding: 25px;
+    border: 1px solid #000;
+}
+
+#house-pluses  .container .right-side {
+    border-left: 0px;
+}
+
 
 #house-pluses h3 {
     font-size: 2em;
@@ -1381,6 +1396,15 @@ footer {
 @media (max-width: 780px) {
     .display-dsktp {
         display: none;
+    }
+
+    #house-pluses  .container {
+        flex-direction: column;
+    }
+
+    #house-pluses .container .right-side {
+        border-left: 1px solid #000;
+        border-top: 0px;
     }
 
     .why-with-icons div {
